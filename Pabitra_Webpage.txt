@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pabitra Kumar Roy | Transportation Engineering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Personal website of Pabitra Kumar Roy, MS student in Transportation Engineering at Portland State University." />
+
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --bg-alt: #ffffff;
+      --accent: #1d4ed8;
+      --accent-soft: #dbeafe;
+      --text: #111827;
+      --muted: #4b5563;
+      --border: #e5e7eb;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: radial-gradient(circle at top left, #eff6ff 0, #f9fafb 45%, #f3f4f6 100%);
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Layout */
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.2rem 1.2rem 3rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.7));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      margin-bottom: 1.8rem;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.9rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .brand span:last-child {
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      text-decoration: none;
+      color: var(--muted);
+    }
+    nav a:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr);
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 1.8rem 1.8rem 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+    }
+
+    .pill {
+      padding: 0.15rem 0.65rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+      white-space: nowrap;
+    }
+
+    .hero p {
+      font-size: 0.96rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-meta {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+    }
+
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .profile-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .profile-role {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .profile-affil {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+      font-size: 0.85rem;
+    }
+
+    .chip {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .chip span.icon {
+      font-size: 1rem;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 2.4rem;
+    }
+
+    h2.section-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.6rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.6rem;
+    }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1.3rem 1.4rem;
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      font-size: 1.02rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .item-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.94rem;
+    }
+
+    .item-list li + li {
+      margin-top: 0.55rem;
+    }
+
+    .item-heading {
+      font-weight: 600;
+    }
+
+    .item-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.25rem;
+      font-size: 0.75rem;
+    }
+
+    .tag {
+      padding: 0.12rem 0.55rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .timeline-year {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+      color: var(--muted);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .skills-grid ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+
+    .skills-grid li + li {
+      margin-top: 0.3rem;
+    }
+
+    /* Awards */
+    .award-year {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    .award-list {
+      list-style: disc;
+      padding-left: 1.2rem;
+      font-size: 0.9rem;
+      margin-top: 0.15rem;
+    }
+
+    /* Contact */
+    .contact-row {
+      font-size: 0.92rem;
+    }
+
+    .contact-row strong {
+      font-weight: 600;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <span>PKR</span>
+        <span>Pabitra Kumar Roy</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#industry">Industry Experience</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#media">Media</a></li>
+          <li><a href="#memberships">Memberships</a></li>
+          <li><a href="#training">Training</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page">
+    <!-- HERO / HOME -->
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <h1 class="hero-title">Pabitra Kumar Roy</h1>
+        <div class="hero-subtitle">
+          MS Student in Transportation Engineering · Portland State University
+        </div>
+
+        <div class="hero-pill-row">
+          <span class="pill">Traffic safety</span>
+          <span class="pill">Econometric modeling</span>
+          <span class="pill">Travel demand modeling</span>
+          <span class="pill">Intelligent transportation systems</span>
+          <span class="pill">Smart cities</span>
+          <span class="pill">CAV & AV safety</span>
+        </div>
+
+        <!-- Replace this paragraph with your exact intro text if you like -->
+        <p>
+          I am a graduate research assistant in the Transportation Lab at Portland State University,
+          working under the supervision of Dr. Tanmoy Bhowmik. My work focuses on traffic safety and
+          behavior, with a strong emphasis on advanced econometric methods and data-driven insights
+          for safer and more efficient transportation systems.
+        </p>
+
+        <p>
+          Beyond research, I am actively involved in student leadership and community building at PSU,
+          collaborating with peers, faculty, and practitioners across multiple transportation and
+          student organizations.
+        </p>
+
+        <div class="hero-meta">
+          <div><strong>Current program:</strong> MS in Transportation Engineering, PSU</div>
+          <div><strong>Expected graduation:</strong> November 2025</div>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="profile-card">
+          <div class="profile-name">Pabitra Kumar Roy</div>
+          <div class="profile-role">Graduate Research Assistant</div>
+          <div class="profile-affil">
+            Department of Civil &amp; Environmental Engineering<br />
+            Portland State University, USA
+          </div>
+
+          <div class="link-row">
+            <!-- Replace these # with your real profile links -->
+            <a class="chip" href="https://www.linkedin.com" target="_blank" rel="noopener">
+              <span class="icon">🔗</span><span>LinkedIn</span>
+            </a>
+            <a class="chip" href="https://github.com" target="_blank" rel="noopener">
+              <span class="icon">💻</span><span>GitHub</span>
+            </a>
+            <a class="chip" href="#contact">
+              <span class="icon">✉️</span><span>Email</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Education</h3>
+          <ul class="item-list">
+            <li>
+              <div class="item-heading">MS, Transportation Engineering</div>
+              <div class="item-meta">
+                Portland State University, USA · 2024 – Nov 2025 (expected)
+              </div>
+            </li>
+            <li>
+              <div class="item-heading">BSc, Civil Engineering</div>
+              <div class="item-meta">
+                Rajshahi University of Engineering &amp; Technology, Bangladesh · 2016
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <h2 class="section-title">Research &amp; Publications</h2>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Ongoing Research Projects</h3>
+          <ul class="item-list">
+            <li>
+              <div class="item-heading">
+                Crash modeling at the Oregon census block level
+              </div>
+              <div class="item-meta">
+                Graduate Research Assistant, Portland State University · 2024 – Present
+              </div>
+              <div class="tag-row">
+                <span class="tag">Crash types</span>
+                <span class="tag">Unobserved heterogeneity</span>
+                <span class="tag">Safety performance</span>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-heading">
+                Copula-based modeling of emergency response timelines
+              </div>
+              <div class="item-meta">
+                Analysis of EMS reporting, response, clearance, and transport times on interstate facilities.
+              </div>
+              <div class="tag-row">
+                <span class="tag">Copula models</span>
+                <span class="tag">Incident management</span>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-heading">
+                Post-COVID trends in distraction-related crashes
+              </div>
+              <div class="item-meta">
+                Study of distraction behavior and collision patterns with Illinois crash data.
+              </div>
+              <div class="tag-row">
+                <span class="tag">Driver behavior</span>
+                <span class="tag">Distraction</span>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-heading">
+                Impaired driving behavior &amp; lane departure crashes
+              </div>
+              <div class="item-meta">
+                Investigation of impaired driving risk factors and roadway geometry.
+              </div>
+              <div class="tag-row">
+                <span class="tag">Impaired driving</span>
+                <span class="tag">Lane departure</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Publications &amp; Outputs</h3>
+          <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 0.7rem;">
+            Add your published and in-preparation papers here. For example:
+          </p>
+          <ul class="item-list">
+            <li>
+              <div class="item-heading">
+                【Paper Title 1】
+              </div>
+              <div class="item-meta">
+                Author list · Journal / Conference · Year
+              </div>
+            </li>
+            <li>
+              <div class="item-heading">
+                【Paper Title 2】
+              </div>
+              <div class="item-meta">
+                Author list · Journal / Conference · Year
+              </div>
+            </li>
+          </ul>
+          <p style="font-size: 0.86rem; color: var(--muted); margin-top: 0.8rem;">
+            <!-- You can link to Google Scholar or ORCID here -->
+            You can also link to your full publication list on Google Scholar, ORCID, or institutional
+            repositories.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRY EXPERIENCE -->
+    <section id="industry">
+      <h2 class="section-title">Industry Experience (8+ Years)</h2>
+
+      <div class="card">
+        <ul class="item-list">
+          <li>
+            <div class="item-heading">Office Engineer (OE)</div>
+            <div class="item-meta">
+              SMEC International Pty Ltd, Bangladesh · Oct 2023 – Dec 2023
+            </div>
+          </li>
+          <li>
+            <div class="item-heading">Site Supervision Engineer (SSE)</div>
+            <div class="item-meta">
+              SMEC International Pty Ltd, Bangladesh · Apr 2021 – Sep 2023
+            </div>
+          </li>
+          <li>
+            <div class="item-heading">Site Supervision Engineer (SSE)</div>
+            <div class="item-meta">
+              SMEC International Pty Ltd, China · Sep 2018 – Mar 2021
+            </div>
+          </li>
+          <li>
+            <div class="item-heading">Assistant Engineer (QA/QC)</div>
+            <div class="item-meta">
+              Next Spaces Ltd, Bangladesh · Jun 2017 – Sep 2018
+            </div>
+          </li>
+          <li>
+            <div class="item-heading">Assistant Engineer (Construction)</div>
+            <div class="item-meta">
+              MAK Estate Development Ltd, Bangladesh · Dec 2015 – Jun 2017
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Programming</h3>
+          <ul>
+            <li>Python</li>
+            <li>R</li>
+            <li>GAUSS</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Data &amp; Analysis</h3>
+          <ul>
+            <li>SPSS</li>
+            <li>ArcGIS</li>
+            <li>MS Office</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Design &amp; CAD</h3>
+          <ul>
+            <li>AutoCAD</li>
+            <li>MicroStation</li>
+            <li>OpenRoads</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Structural / Geotechnical</h3>
+          <ul>
+            <li>ETABS</li>
+            <li>MIDAS GTS NX</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Visualization &amp; Communication</h3>
+          <ul>
+            <li>Canva</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HONORS & AWARDS -->
+    <section id="awards">
+      <h2 class="section-title">Honors &amp; Awards</h2>
+      <div class="card">
+        <div class="award-year">2025</div>
+        <ul class="award-list">
+          <li>TRB 2025 Conference Travel Grant (ITE-STEP PSU) – $1,000</li>
+          <li>ITE-STEP PSU Student Leadership Scholarship – $400 (Fall)</li>
+          <li>Student Leadership Fellows Scholarship – $600 + $600 (Winter &amp; Spring)</li>
+          <li>Certificate of Recognition as Student Leader (Winter, SALP-PSU)</li>
+        </ul>
+
+        <div class="award-year">2024</div>
+        <ul class="award-list">
+          <li>Oregon ITE Traffic Bowl – 2nd Place (team award, OR-ITE) – $500</li>
+          <li>PacTrans 2024 Conference Travel Grant (TREC-PSU) – $1,500</li>
+          <li>Student Leadership Fellows Scholarship – $600 + $600 (Spring &amp; Fall)</li>
+          <li>Certificate of Recognition as Student Leader (Fall, SALP-PSU)</li>
+        </ul>
+
+        <div class="award-year">2022</div>
+        <ul class="award-list">
+          <li>Karnaphuli Tunnel Project Video Contest (CCCC-KTP) – $500</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching">
+      <h2 class="section-title">Teaching</h2>
+      <div class="card">
+        <p style="font-size: 0.92rem; color: var(--muted);">
+          Add your teaching experience here. For example, list any courses or labs you have assisted with,
+          guest lectures you have delivered, or mentoring and tutoring roles at PSU or in previous positions.
+        </p>
+        <ul class="item-list">
+          <li>
+            <div class="item-heading">【Course / Lab Name】</div>
+            <div class="item-meta">Teaching Assistant · Institution · Term / Year</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section id="media">
+      <h2 class="section-title">Media</h2>
+      <div class="card">
+        <p style="font-size: 0.92rem; color: var(--muted); margin-bottom: 0.6rem;">
+          Use this section to highlight interviews, videos, project features, or news articles where your
+          work has been featured.
+        </p>
+        <ul class="item-list">
+          <li>
+            <div class="item-heading">【Media item title or description】</div>
+            <div class="item-meta">
+              Link / Platform · Year<br />
+              <a href="#">View media</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIPS -->
+    <section id="memberships">
+      <h2 class="section-title">Memberships &amp; Service</h2>
+      <div class="card">
+        <ul class="item-list">
+          <li>
+            <div class="item-heading">
+              Vice President, ITE-STEP Chapter, Portland State University
+            </div>
+            <div class="item-meta">
+              Student Chapter of the Institute of Transportation Engineers (ITE)
+            </div>
+          </li>
+          <li>
+            <div class="item-heading">
+              Vice President, Bangladesh Student Association (BSA), PSU
+            </div>
+            <div class="item-meta">
+              Cultural and community organization for Bangladeshi students
+            </div>
+          </li>
+          <li>
+            <div class="item-heading">
+              Associate Editor, Hatfield Graduate Journal of Public Affairs
+            </div>
+            <div class="item-meta">
+              Portland State University · From Oct 2025
+            </div>
+          </li>
+          <!-- Add ASA, TRB committees etc. here if applicable -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- TRAINING -->
+    <section id="training">
+      <h2 class="section-title">Training &amp; Workshops</h2>
+      <div class="card">
+        <p style="font-size: 0.92rem; color: var(--muted); margin-bottom: 0.6rem;">
+          List relevant professional training, workshops, and short courses here (transportation safety,
+          data analysis, software, leadership programs, etc.).
+        </p>
+        <ul class="item-list">
+          <li>
+            <div class="item-heading">【Training / Workshop Title】</div>
+            <div class="item-meta">
+              Provider / Conference · Year
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card contact-row">
+        <p><strong>Mobile:</strong> +1 (503) 267-8377</p>
+        <p><strong>Email:</strong> <a href="mailto:pabitra@pdx.edu">pabitra@pdx.edu</a></p>
+        <p><strong>Alternate email:</strong> <a href="mailto:pabitraroy93@gmail.com">pabitraroy93@gmail.com</a></p>
+        <p>
+          Department of Civil &amp; Environmental Engineering<br />
+          Portland State University, Portland, Oregon, USA
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> Pabitra Kumar Roy · Built with GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    // Simple script to keep footer year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
